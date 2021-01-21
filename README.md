@@ -1,3 +1,3 @@
 100 days of swift.
 
-My journey through the Hhacking with Swift tutorial series.
+My journey through the Hacking with Swift tutorial series.
