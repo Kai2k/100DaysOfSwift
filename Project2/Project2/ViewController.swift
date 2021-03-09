@@ -13,8 +13,26 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
     countries.shuffle()
+    scoreButton()
     buttonStyles()
     askQuestion(action: nil)
+  }
+  
+  private func scoreButton() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(scoreTapped))
+  }
+  
+  @objc private func scoreTapped() {
+    let alertController = UIAlertController(title: appName, message: "Your score is \(score)", preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+    present(alertController, animated: true, completion: nil)
+  }
+  
+  private var appName: String {
+    guard let dictionary = Bundle.main.infoDictionary,
+          let name = dictionary["CFBundleDisplayName"] as? String
+          else { return "" }
+    return name
   }
   
   private func buttonStyles() {
