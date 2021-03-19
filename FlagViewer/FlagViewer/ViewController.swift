@@ -31,7 +31,8 @@ class ViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "flag", for: indexPath)
-    cell.textLabel?.text = flags[indexPath.row]
+    cell.textLabel?.text = prettyName(forFlag: flags[indexPath.row])
+    cell.imageView?.image = image(forFlag: flags[indexPath.row])
     return cell
   }
   
@@ -45,17 +46,21 @@ class ViewController: UITableViewController {
   
   private func show(flag: String) {
     guard let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else { return }
-    detailViewController.title = flag
+    detailViewController.title = prettyName(forFlag: flag)
     detailViewController.flagImage = image(forFlag: flag)
     navigationController?.pushViewController(detailViewController, animated: true)
   }
   
-  private func image(forFlag: String) -> UIImage? {
+  private func image(forFlag flag: String) -> UIImage? {
     var name: String = Bundle.main.resourcePath!
-    name.append("/\(forFlag)")
+    name.append("/\(flag)")
     name.append(".png")
     print(name)
     return UIImage(contentsOfFile: name)
+  }
+  
+  private func prettyName(forFlag flag: String) -> String {
+    return flag.count > 2 ?  flag.capitalized : flag.uppercased()
   }
 }
 
