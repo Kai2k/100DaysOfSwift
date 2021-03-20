@@ -18,10 +18,15 @@ class ViewController: UITableViewController {
     items = try fm.contentsOfDirectory(atPath: path)
     } catch { return }
     let _ = items.map({ item in
-      if item.hasSuffix(".png") {
+      if item.isValid() {
         flags.append(self.removeSuffixFrom(item))
       }
     })
+  }
+  
+  private func isvalid(item: String) -> Bool {
+    return item.hasSuffix(".png")
+      && !item.contains("@")
   }
   
   private func removeSuffixFrom(_ item: String) -> String {
@@ -61,6 +66,13 @@ class ViewController: UITableViewController {
   
   private func prettyName(forFlag flag: String) -> String {
     return flag.count > 2 ?  flag.capitalized : flag.uppercased()
+  }
+}
+
+fileprivate extension String {
+  func isValid() -> Bool {
+    return self.hasSuffix(".png") &&
+      !self.contains("@")
   }
 }
 
