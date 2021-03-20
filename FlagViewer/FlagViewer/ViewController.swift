@@ -7,10 +7,10 @@ class ViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Flags"
-    loadFlags()
+    load()
   }
 
-  private func loadFlags() {
+  private func load() {
     let fm = FileManager.default
     let path = Bundle.main.resourcePath!
     var items: [String]
@@ -22,11 +22,6 @@ class ViewController: UITableViewController {
         flags.append(self.removeSuffixFrom(item))
       }
     })
-  }
-  
-  private func isvalid(item: String) -> Bool {
-    return item.hasSuffix(".png")
-      && !item.contains("@")
   }
   
   private func removeSuffixFrom(_ item: String) -> String {
@@ -41,37 +36,36 @@ class ViewController: UITableViewController {
     return cell
   }
   
+  private func image(forFlag flag: String) -> UIImage? {
+    var name: String = Bundle.main.resourcePath!
+    name.append("/\(flag)")
+    name.append(".png")
+    return UIImage(contentsOfFile: name)
+  }
+  
+  private func prettyName(forFlag flag: String) -> String {
+    flag.count > 2 ? flag.capitalized : flag.uppercased()
+  }
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return flags.count
+    flags.count
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    show(flag: flags[indexPath.row])
+    show(flags[indexPath.row])
   }
   
-  private func show(flag: String) {
+  private func show(_ flag: String) {
     guard let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else { return }
     detailViewController.title = prettyName(forFlag: flag)
     detailViewController.flagImage = image(forFlag: flag)
     navigationController?.pushViewController(detailViewController, animated: true)
   }
-  
-  private func image(forFlag flag: String) -> UIImage? {
-    var name: String = Bundle.main.resourcePath!
-    name.append("/\(flag)")
-    name.append(".png")
-    print(name)
-    return UIImage(contentsOfFile: name)
-  }
-  
-  private func prettyName(forFlag flag: String) -> String {
-    return flag.count > 2 ?  flag.capitalized : flag.uppercased()
-  }
 }
 
 fileprivate extension String {
   func isValid() -> Bool {
-    return self.hasSuffix(".png") &&
+    self.hasSuffix(".png") &&
       !self.contains("@")
   }
 }
