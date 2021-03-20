@@ -31,20 +31,20 @@ class ViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "flag", for: indexPath)
-    cell.textLabel?.text = prettyName(forFlag: flags[indexPath.row])
-    cell.imageView?.image = image(forFlag: flags[indexPath.row])
+    cell.textLabel?.text = prettyName(for: flags[indexPath.row])
+    cell.imageView?.image = image(for: flags[indexPath.row])
     return cell
   }
   
-  private func image(forFlag flag: String) -> UIImage? {
+  private func prettyName(for flag: String) -> String {
+    flag.count > 2 ? flag.capitalized : flag.uppercased()
+  }
+  
+  private func image(for flag: String) -> UIImage? {
     var name: String = Bundle.main.resourcePath!
     name.append("/\(flag)")
     name.append(".png")
     return UIImage(contentsOfFile: name)
-  }
-  
-  private func prettyName(forFlag flag: String) -> String {
-    flag.count > 2 ? flag.capitalized : flag.uppercased()
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,8 +57,8 @@ class ViewController: UITableViewController {
   
   private func show(_ flag: String) {
     guard let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else { return }
-    detailViewController.title = prettyName(forFlag: flag)
-    detailViewController.flagImage = image(forFlag: flag)
+    detailViewController.title = prettyName(for: flag)
+    detailViewController.image = image(for: flag)
     navigationController?.pushViewController(detailViewController, animated: true)
   }
 }

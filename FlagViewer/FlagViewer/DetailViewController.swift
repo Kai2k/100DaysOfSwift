@@ -2,10 +2,10 @@ import UIKit
 
 class DetailViewController: UIViewController {
   @IBOutlet weak var flag: UIImageView!
-  var flagImage: UIImage?
+  var image: UIImage?
   
   override func viewWillAppear(_ animated: Bool) {
-    flag.image = flagImage
+    flag.image = image
     shareButton()
   }
   
@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
   }
   
   @objc private func shareTapped() {
-    guard let image = flagImage?.jpegData(compressionQuality: CGFloat(0.8)) else { return }
+    guard let image = image?.jpegData(compressionQuality: CGFloat(0.8)) else { return }
     let activityViewController = UIActivityViewController(activityItems: [image, title as Any], applicationActivities: [])
     present(activityViewController, animated: true, completion: nil)
   }
