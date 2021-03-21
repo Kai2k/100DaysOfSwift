@@ -23,8 +23,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
     progressView.sizeToFit()
     let progressButton = UIBarButtonItem(customView: progressView)
     let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let back = UIBarButtonItem(title: "<", style: .plain, target: webView, action: #selector(webView.goBack))
+    let forward = UIBarButtonItem(title: ">", style: .plain, target: webView, action: #selector(webView.goForward))
     let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
-    toolbarItems = [progressButton, spacer, refresh]
+    toolbarItems = [progressButton, spacer, back, forward, refresh]
     navigationController?.isToolbarHidden = false
   }
   
