@@ -60,6 +60,14 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     decisionHandler(.cancel)
+    notify(blockedUrl: url)
+  }
+  
+  private func notify(blockedUrl url: URL?) {
+    guard let url = url, url.absoluteString != "about:blank" else { return }
+    let alertController = UIAlertController(title: nil, message: "\(url.absoluteString) was blocked", preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "OK", style: .default))
+    present(alertController, animated: true)
   }
   
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
