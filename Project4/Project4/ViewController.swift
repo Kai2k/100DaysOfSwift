@@ -1,7 +1,7 @@
 import UIKit
 
 class ViewController: UITableViewController {
-  private let allowedWebsites = ["apple.com", "bbc.co.uk", "googe.com", "ebay.co.uk"]
+  private let allowedWebsites = ["apple.com", "bbc.co.uk", "google.com", "ebay.co.uk"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
