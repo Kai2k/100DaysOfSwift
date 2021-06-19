@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bBf-Tq-Oyw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bBf-Tq-Oyw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,13 +11,16 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project6a" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pd-H1-RJN">
                                 <rect key="frame" x="107" y="248" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7pd-H1-RJN" secondAttribute="height" multiplier="2:1" id="Okp-vN-Ccl"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xke-Aa-jFg"/>
@@ -32,6 +35,9 @@
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-FT-xUK">
                                 <rect key="frame" x="107" y="368" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hcb-FT-xUK" secondAttribute="height" multiplier="2:1" id="ZP2-Fq-ZLT"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZMO-4l-5u0"/>
@@ -41,11 +47,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bWc-gd-ffk" secondAttribute="bottom" constant="20" id="0he-ec-7RC"/>
                             <constraint firstItem="Hcb-FT-xUK" firstAttribute="centerX" secondItem="7pd-H1-RJN" secondAttribute="centerX" id="47j-fJ-2wS"/>
                             <constraint firstItem="Hcb-FT-xUK" firstAttribute="top" secondItem="7pd-H1-RJN" secondAttribute="bottom" constant="20" id="Xbp-hC-5ua"/>
                             <constraint firstItem="7pd-H1-RJN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gxB-xU-kBX"/>
                             <constraint firstItem="bWc-gd-ffk" firstAttribute="centerX" secondItem="Hcb-FT-xUK" secondAttribute="centerX" id="gzD-9n-LwV"/>
+                            <constraint firstItem="Hcb-FT-xUK" firstAttribute="height" secondItem="7pd-H1-RJN" secondAttribute="height" id="jv9-WS-U4V"/>
                             <constraint firstItem="bWc-gd-ffk" firstAttribute="top" secondItem="Hcb-FT-xUK" secondAttribute="bottom" constant="20" id="mNd-fs-5x7"/>
+                            <constraint firstItem="bWc-gd-ffk" firstAttribute="height" secondItem="Hcb-FT-xUK" secondAttribute="height" id="pvG-ao-Zxq"/>
                             <constraint firstItem="7pd-H1-RJN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="uR4-4o-JAD"/>
                         </constraints>
                     </view>
