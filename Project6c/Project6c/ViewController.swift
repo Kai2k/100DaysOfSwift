@@ -24,6 +24,7 @@ class ShoppingListViewController: UITableViewController {
     
     let submitAction = UIAlertAction(title: "Add item", style: .default) { [weak self, weak alertController] _ in
       guard let itemText = alertController?.textFields?[0].text else { return }
+      self?.add(item: itemText)
     }
     alertController.addAction(submitAction)
     present(alertController, animated: true)
@@ -31,6 +32,16 @@ class ShoppingListViewController: UITableViewController {
   
   private func add(item: String) {
     items.append(item)
+  }
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    items.count
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
+    cell.textLabel?.text = items[indexPath.row]
+    return cell
   }
 }
 
