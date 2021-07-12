@@ -33,11 +33,11 @@ class ShoppingListViewController: UITableViewController {
   private func add(item: String) {
     if !isValid(item: item) { return }
     items.append(item)
-    tableView.reloadData()
+    tableView.insertRows(at: [IndexPath(row: items.count - 1, section: 0)], with: .automatic)
   }
   
-  private func isValid(item: String) -> {
-    item.count > 0
+  private func isValid(item: String) -> Bool {
+    item.count >= 0
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
