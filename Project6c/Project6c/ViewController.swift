@@ -8,7 +8,7 @@ class ShoppingListViewController: UITableViewController {
   
     title()
     addButton()
-    clearButton()
+    clearAndShareButtons()
   }
   
   private func title() {
@@ -31,13 +31,26 @@ class ShoppingListViewController: UITableViewController {
     present(alertController, animated: true)
   }
   
-  private func clearButton() {
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clear))
+  private func clearAndShareButtons() {
+    navigationItem.rightBarButtonItems = [clearButton(), shareButton()]
+  }
+  
+  private func clearButton() -> UIBarButtonItem {
+    UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clear))
   }
   
   @objc func clear() {
     items.removeAll()
     tableView.reloadData()
+  }
+  
+  private func shareButton() -> UIBarButtonItem {
+    UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share))
+  }
+  
+  @objc private func share() {
+    let activityController = UIActivityViewController(activityItems: <#T##[Any]#>, applicationActivities: <#T##[UIActivity]?#>)
+    present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
   }
   
   private func add(item: String) {
