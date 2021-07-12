@@ -7,14 +7,15 @@ class ShoppingListViewController: UITableViewController {
     super.viewDidLoad()
   
     title()
-    barButton()
+    addButton()
+    clearButton()
   }
   
   private func title() {
     title = "Shopping List"
   }
 
-  private func barButton() {
+  private func addButton() {
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptToAdd))
   }
   
@@ -28,6 +29,15 @@ class ShoppingListViewController: UITableViewController {
     }
     alertController.addAction(submitAction)
     present(alertController, animated: true)
+  }
+  
+  private func clearButton() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clear))
+  }
+  
+  @objc func clear() {
+    items.removeAll()
+    tableView.reloadData()
   }
   
   private func add(item: String) {
