@@ -31,7 +31,13 @@ class ShoppingListViewController: UITableViewController {
   }
   
   private func add(item: String) {
+    if !isValid(item: item) { return }
     items.append(item)
+    tableView.reloadData()
+  }
+  
+  private func isValid(item: String) -> {
+    item.count > 0
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
