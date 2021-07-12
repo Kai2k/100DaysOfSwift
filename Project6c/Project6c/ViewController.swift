@@ -49,8 +49,12 @@ class ShoppingListViewController: UITableViewController {
   }
   
   @objc private func share() {
-    let activityController = UIActivityViewController(activityItems: <#T##[Any]#>, applicationActivities: <#T##[UIActivity]?#>)
-    present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+    let activityController = UIActivityViewController(activityItems: [prettyList()], applicationActivities: nil)
+    present(activityController, animated: true)
+  }
+  
+  private func prettyList() -> String {
+    items.joined(separator: ",")
   }
   
   private func add(item: String) {
