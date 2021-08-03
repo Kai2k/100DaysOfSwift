@@ -17,6 +17,7 @@
 		2A3DFC0D26B9AE4500B5401B /* Project7UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3DFC0C26B9AE4500B5401B /* Project7UITests.swift */; };
 		2A3DFC1B26B9B3D200B5401B /* Petition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3DFC1A26B9B3D200B5401B /* Petition.swift */; };
 		2A3DFC1D26B9B50C00B5401B /* Petitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3DFC1C26B9B50C00B5401B /* Petitions.swift */; };
+		2A3DFC1F26B9B86000B5401B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3DFC1E26B9B86000B5401B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2A3DFC0E26B9AE4500B5401B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A3DFC1A26B9B3D200B5401B /* Petition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petition.swift; sourceTree = "<group>"; };
 		2A3DFC1C26B9B50C00B5401B /* Petitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petitions.swift; sourceTree = "<group>"; };
+		2A3DFC1E26B9B86000B5401B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				2A3DFBEA26B9AE4100B5401B /* AppDelegate.swift */,
 				2A3DFBEC26B9AE4100B5401B /* SceneDelegate.swift */,
 				2A3DFBEE26B9AE4100B5401B /* ViewController.swift */,
+				2A3DFC1E26B9B86000B5401B /* DetailViewController.swift */,
 				2A3DFC1A26B9B3D200B5401B /* Petition.swift */,
 				2A3DFC1C26B9B50C00B5401B /* Petitions.swift */,
 				2A3DFBF026B9AE4100B5401B /* Main.storyboard */,
@@ -267,6 +270,7 @@
 				2A3DFBEF26B9AE4100B5401B /* ViewController.swift in Sources */,
 				2A3DFC1B26B9B3D200B5401B /* Petition.swift in Sources */,
 				2A3DFBEB26B9AE4100B5401B /* AppDelegate.swift in Sources */,
+				2A3DFC1F26B9B86000B5401B /* DetailViewController.swift in Sources */,
 				2A3DFBED26B9AE4100B5401B /* SceneDelegate.swift in Sources */,
 				2A3DFC1D26B9B50C00B5401B /* Petitions.swift in Sources */,
 			);
