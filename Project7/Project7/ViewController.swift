@@ -4,9 +4,12 @@ import UIKit
 class ViewController: UITableViewController {
   
   private var petitions = [Petition]()
+  private var filteredPetitions = [Petition]()
+  private var filterString: String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    filter()
     credits()
     
     var urlString: String
@@ -26,9 +29,24 @@ class ViewController: UITableViewController {
     showError()
   }
   
+  private func filter() {
+    let filter = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(showFilter))
+    navigationItem.rightBarButtonItem = filter
+  }
+  
+  @objc private func showFilter() {
+    let alertController = UIAlertController(title: nil, message: "Enter filter term", preferredStyle: .alert)
+    alertController.addTextField(configurationHandler: {_ in
+      
+    })
+    alertController.addAction(UIAlertAction(title: "OK", style: .default))
+    alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    present(alertController, animated: true)
+  }
+  
   private func credits() {
     let credits = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showCredits))
-    navigationItem.rightBarButtonItem = credits
+    navigationItem.rightBarButtonItems?.append(credits)
   }
   
   @objc private func showCredits() {
