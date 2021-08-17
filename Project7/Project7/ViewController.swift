@@ -7,6 +7,7 @@ class ViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    credits()
     
     var urlString: String
     
@@ -23,6 +24,17 @@ class ViewController: UITableViewController {
       }
     }
     showError()
+  }
+  
+  private func credits() {
+    let credits = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showCredits))
+    navigationItem.rightBarButtonItem = credits
+  }
+  
+  @objc private func showCredits() {
+    let alertController = UIAlertController(title: nil, message: "Data courtesy of We The People API of the Whitehouse", preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "OK", style: .default))
+    present(alertController, animated: true)
   }
   
   private func parse(json: Data) {
